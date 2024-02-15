@@ -8,6 +8,7 @@ html {
   --dark-bg: #022c43;
   --sidebar-width: 60px;
   --sidebar-height: 60px;
+  --primary-color:#ffd700,
 }
 
 button{
@@ -46,10 +47,10 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  animation: pulse 1s infinite;
+  animation: loadBlurry 1s infinite;
 }
 
-@keyframes pulse {
+@keyframes loadBlurry {
   0% {
     background-color: rgba(255, 254, 254,0);
   }

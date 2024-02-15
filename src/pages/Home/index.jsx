@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import ContactBtn from "./ContactBtn";
 import AnimatedLetters from "../../components/AnimatedLetters";
 import banner from "../../assets/images/banner.jpg";
+import Loader from "react-loaders";
 
 const Home = () => {
   const isDark = useSelector((state) => state.theme.isDark);

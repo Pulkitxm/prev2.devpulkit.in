@@ -33,7 +33,7 @@
   content: "";
   width: 100%;
   height: 100%;
-  background-color: #777;
+  background-color: #ff0000;
   border-radius: 30px;
   transform: translateX(-30px); /*translateX(-(w-h))*/
   transition: 0.2s;
@@ -42,7 +42,12 @@
 input:checked + .slider:before
 {
   transform: translateX(30px); /*translateX(w-h)*/
-  background-color: red;
+}
+
+input:checked + .slider.dark:before
+{
+  transform: translateX(30px); /*translateX(w-h)*/
+  background-color: #8b8b8b;
 }
 
 input:checked + .slider

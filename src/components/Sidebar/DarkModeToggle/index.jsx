@@ -13,11 +13,13 @@ const Index = () => {
       <label className="switch">
         <input
           type="checkbox"
-          checked={!isDark}
+          checked={isDark}
           onChange={() => dispatch(toggle())}
-        />
+          style={{
+          }}
+          />
         <span
-          className="slider"
+          className={"slider"+(isDark ? " dark" : " light")}
           style={{
             boxShadow: isDark ? "2px 2px 20px #fff" : "0 0 0 2px red, 0 0 8px red",
           }}

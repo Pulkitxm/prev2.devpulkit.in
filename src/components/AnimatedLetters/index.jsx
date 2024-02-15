@@ -4,7 +4,7 @@ const Index = ({letterClass, strArray, idx}) => {
   return (
     <span>
       {strArray.map((char, i) => (
-        <span key={char + i} className={`${letterClass} _${i + idx}`}>
+        <span key={char + i} className={`blast ${letterClass} _${i + idx}`}>
           {char}
         </span>
       ))}
@@ -15,7 +15,13 @@ const Index = ({letterClass, strArray, idx}) => {
 export default Index;
 
 Index.propTypes = {
-  letterClass: PropTypes.string,
-  strArray: PropTypes.array,
-  idx: PropTypes.number,
+  letterClass: PropTypes.string.isRequired,
+  strArray: PropTypes.array.isRequired,
+  idx: PropTypes.number.isRequired,
+};
+
+Index.defaultProps = {
+  letterClass: "",
+  strArray: [],
+  idx: 0,
 };
