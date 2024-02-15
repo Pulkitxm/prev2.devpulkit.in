@@ -2,9 +2,8 @@
 
 .nav-bar {
   user-select: none;
-  cursor: pointer;
   padding-bottom: 1em;
-  z-index: 3;
+  z-index: 5;
   .logo {
     display: flex;
     flex-direction: column;
@@ -20,6 +19,8 @@
     }
   }
   nav {
+    transition: all 0.3s ease-out;
+    left: 100%;
     a {
       font-size: 22px;
       color: #4d4d4e;
@@ -64,11 +65,13 @@
     a.about-link {
       &:after {
         content: "About";
+        transform: translateX(-10%);
       }
     }
-    a.skills-link {
+    a.resume-link {
       &:after {
-        content: "Skills";
+        content: "Resume";
+        transform: translateX(-50%);
       }
     }
     a.work-link {
@@ -79,6 +82,7 @@
     a.contact-link {
       &:after {
         content: "Contact";
+        transform: translateX(-50%);
       }
     }
 
@@ -89,6 +93,34 @@
     .light:hover,
     .light.active svg {
       color: red;
+    }
+  }
+  .burger{
+    z-index: 10;
+    position: absolute;
+    right: 20px;
+    height: 40px;
+    width: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    cursor: pointer;
+    .line{
+      width: 50px;
+      border-radius: 10px;
+      height: 5px;
+      background: #4d4d4e;
+      transition: transform 0.2s ease-in-out;
+    }
+  }
+  .burger.highlight{
+    .line-1 {
+      transform: rotate(-45deg) translate(-6px, 6px);
+    }
+
+    .line-2 {
+      transform: rotate(45deg) translate(-8px, -8px);
     }
   }
   .bottom {

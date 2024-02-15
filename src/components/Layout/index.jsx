@@ -21,17 +21,17 @@ const Layout = () => {
         }}
       >
         <span style={{
-          color:isDark?"#ffd700":"#000"
+          color:isDark?"#ffd700":"red"
         }} className="tags top-tags">&lt;body&gt;</span>
 
         <Outlet />
         <span style={{
-          color:isDark?"#ffd700":"#000"
+          color:isDark?"#ffd700":"red"
         }} className="tags bottom-tags">
           &lt;/body&gt;
           <br />
           <span style={{
-            color:isDark?"#ffd700":"#000"
+            color:isDark?"#ffd700":"red"
           }} className="bottom-tag-html">&lt;/html&gt;</span>
         </span>
       </div>

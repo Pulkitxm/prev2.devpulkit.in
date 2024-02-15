@@ -6,15 +6,29 @@ import { useSelector } from "react-redux";
 import DarkModeToggle from "./DarkModeToggle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
+  faBook,
   faEnvelope,
   faEye,
-  faGear,
   faHome,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
+import { useEffect, useRef, useState } from "react";
 
 const Index = () => {
   const isDark = useSelector((state) => state.theme.isDark);
+  const navRef = useRef(null);
+  const [highlight, setHighlight] = useState(false);
+  const handleNavClick = () => {
+    if (highlight) {
+      setHighlight(false);
+    } else {
+      setHighlight(true);
+    }
+  };
+  useEffect(() => {
+    if (highlight) navRef.current.style.left = "0%";
+    else navRef.current.style.left = "100%";
+  }, [highlight]);
   return (
     <div
       className="nav-bar"
@@ -29,6 +43,7 @@ const Index = () => {
         justifyContent:
           window.innerWidth > 1000 ? "space-between" : "space-between",
         alignItems: window.innerWidth > 1000 ? "center" : "center",
+        padding: window.innerWidth > 1000 ? null : "20px 0",
       }}
     >
       <Link className="logo" to={"/"}>
@@ -38,25 +53,54 @@ const Index = () => {
             color: isDark ? "#fff" : "#000",
           }}
         >
-          Pulkit
+          {window.innerWidth > 1000 ? "Pulkit" : ""}
         </p>
       </Link>
 
+      {window.innerWidth < 1000 && (
+        <div
+          className={`burger ${highlight ? "highlight" : ""}`}
+          onClick={() => handleNavClick()}
+        >
+          <div
+            className="line-1 line"
+            style={{
+              backgroundColor: isDark ? "#fff" : "#000",
+            }}
+          ></div>
+          <div
+            className="line-2 line"
+            style={{
+              backgroundColor: isDark ? "#fff" : "#000",
+            }}
+          ></div>
+        </div>
+      )}
+
       <nav
+        ref={navRef}
         style={{
-          display: window.innerWidth > 1000 ? "flex" :  "flex",
-          flexDirection: window.innerWidth > 1000 ? "column" :  "row",
-          alignItems: window.innerWidth > 1000 ? "center" :  "center",
-          justifyContent: window.innerWidth > 1000 ? null :  "space-between",
-          textAlign: window.innerWidth > 1000 ? "center" :  "center",
-          position: window.innerWidth > 1000 ? "absolute" :  "absolute",
-          height: window.innerWidth > 1000 ? "210px" :  "210px",
-          top: window.innerWidth > 1000 ? "50%" :  null,
-          left: window.innerWidth > 1000 ? null :  "50%",
-          marginTop: window.innerWidth > 1000 ? "-120px" :  null,
+          display: window.innerWidth > 1000 ? "flex" : "flex",
+          flexDirection: window.innerWidth > 1000 ? "column" : "row",
+          alignItems: window.innerWidth > 1000 ? "center" : "center",
+          justifyContent: window.innerWidth > 1000 ? "center" : "space-around",
+          textAlign: window.innerWidth > 1000 ? "center" : "center",
+          position: window.innerWidth > 1000 ? "absolute" : "absolute",
+          height: window.innerWidth > 1000 ? "210px" : "50px",
+          width: window.innerWidth > 1000 ? null : "100%",
+          top: window.innerWidth > 1000 ? "50%" : "63px",
+          left: window.innerWidth > 1000 ? null : "0",
+          backgroundColor:
+            window.innerWidth < 1000
+              ? isDark
+                ? "rgb(43 43 43)"
+                : "rgb(255 255 255)"
+              : null,
+          marginTop: window.innerWidth > 1000 ? "-120px" : null,
         }}
       >
         <NavLink
+          onClick={() => setHighlight(false)}
           exact="true"
           // eslint-disable-next-line quotes
           className={`home-link link ${isDark ? "dark" : "light"}`}
@@ -65,6 +109,7 @@ const Index = () => {
           <FontAwesomeIcon icon={faHome} color={"#4d4d4e"} />
         </NavLink>
         <NavLink
+          onClick={() => setHighlight(false)}
           exact="true"
           // eslint-disable-next-line quotes
           className={`about-link link ${isDark ? "dark" : "light"}`}
@@ -73,14 +118,16 @@ const Index = () => {
           <FontAwesomeIcon icon={faUser} color={"#4d4d4e"} />
         </NavLink>
         <NavLink
+          onClick={() => setHighlight(false)}
           exact="true"
           // eslint-disable-next-line quotes
-          className={`skills-link link ${isDark ? "dark" : "light"}`}
-          to={"/skills"}
+          className={`resume-link link ${isDark ? "dark" : "light"}`}
+          to={"/resume"}
         >
-          <FontAwesomeIcon icon={faGear} color={"#4d4d4e"} />
+          <FontAwesomeIcon icon={faBook} color={"#4d4d4e"} />
         </NavLink>
         <NavLink
+          onClick={() => setHighlight(false)}
           exact="true"
           // eslint-disable-next-line quotes
           className={`work-link link ${isDark ? "dark" : "light"}`}
@@ -89,6 +136,7 @@ const Index = () => {
           <FontAwesomeIcon icon={faEye} color={"#4d4d4e"} />
         </NavLink>
         <NavLink
+          onClick={() => setHighlight(false)}
           exact="true"
           // eslint-disable-next-line quotes
           className={`contact-link link ${isDark ? "dark" : "light"}`}
@@ -96,6 +144,7 @@ const Index = () => {
         >
           <FontAwesomeIcon icon={faEnvelope} color={"#4d4d4e"} />
         </NavLink>
+        {window.innerWidth < 1000 && <DarkModeToggle />}
       </nav>
 
       {window.innerWidth > 1000 && (

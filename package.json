@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@dogstudio/highway": "^2.2.1",
     "@emailjs/browser": "^4.1.0",
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
@@ -17,6 +18,7 @@
     "@googlemaps/js-api-loader": "^1.16.2",
     "@reduxjs/toolkit": "^2.2.0",
     "animate.css": "^4.1.1",
+    "framer-motion": "^11.0.5",
     "gsap-trial": "^3.12.5",
     "loaders.css": "^0.1.2",
     "prop-types": "^15.8.1",

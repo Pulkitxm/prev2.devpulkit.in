@@ -6,6 +6,7 @@ import ContactBtn from "./ContactBtn";
 import AnimatedLetters from "../../components/AnimatedLetters";
 import banner from "../../assets/images/banner.jpg";
 import Loader from "react-loaders";
+import Transition from "../../components/Layout/transition";
 
 const Home = () => {
   const isDark = useSelector((state) => state.theme.isDark);
@@ -38,7 +39,7 @@ const Home = () => {
     return (
       <span
         style={{
-          color: isDark ? "rgb(255, 215, 0)" : "#000",
+          color: isDark ? "rgb(255, 215, 0)" : "red",
           opacity: "0.6",
           fontWeight: "bold",
           fontSize: "18px",
@@ -54,70 +55,72 @@ const Home = () => {
     name: PropTypes.string.isRequired,
   };
   return (
-    <div
-      className="home"
-      style={{
-        backgroundColor: isDark ? "var(--dark-bg)" : "var(--light-bg)",
-        color: isDark ? "#fff" : "#000",
-      }}
-    >
-      <div className="left">
-        <Tag name="h1" />
-        <h1>
-          <span className={`${letterClass} _9`}>H</span>
-          <span className={`${letterClass} _10`}>e</span>
-          <span className={`${letterClass} _11`}>y</span>
-          <span className={`${letterClass} _12`}>!</span> &nbsp;
-          <span className={`${letterClass} _13`}>F</span>
-          <span className={`${letterClass} _14`}>o</span>
-          <span className={`${letterClass} _15`}>l</span>
-          <span className={`${letterClass} _16`}>k</span>
-          <span className={`${letterClass} _17`}>s</span>
-          <br />
-          <AnimatedLetters
-            letterClass={letterClass}
-            strArray={array[0]}
-            idx={15}
-          />
-          <br />
-          <AnimatedLetters
-            letterClass={letterClass}
-            strArray={array[1]}
-            idx={20}
-          />{" "}
-          &nbsp;
-          <Tag name="/h1" />
-        </h1>
-        <h2
-          style={{
-            color: isDark ? "#ffffff80" : "#000",
-          }}
-        >
-          Full Stack Web Developement / MERN / App Developement / React Native
-          &nbsp;
-        </h2>
-        <ContactBtn />
-      </div>
-      {window.innerWidth > 1000 && (
-        <div
-          className="right blur-div"
-          style={{
-            filter: isDark ? "brightness(80%)" : "brightness(100%)",
-          }}
-        >
-          <img
-            src={banner}
-            className="blur-load"
-            alt=""
-            onContextMenu={(e) => e.preventDefault()}
-            draggable={false}
+    <Transition isDark={isDark}>
+      <div
+        className="home"
+        style={{
+          backgroundColor: isDark ? "var(--dark-bg)" : "var(--light-bg)",
+          color: isDark ? "#fff" : "#000",
+        }}
+      >
+        <div className="left">
+          <Tag name="h1" />
+          <h1>
+            <span className={`${letterClass} ${isDark?"dark-txt":"light-txt"} _9`}>H</span>
+            <span className={`${letterClass} ${isDark?"dark-txt":"light-txt"} _10`}>e</span>
+            <span className={`${letterClass} ${isDark?"dark-txt":"light-txt"} _11`}>y</span>
+            <span className={`${letterClass} ${isDark?"dark-txt":"light-txt"} _12`}>!</span> &nbsp;
+            <span className={`${letterClass} ${isDark?"dark-txt":"light-txt"} _13`}>F</span>
+            <span className={`${letterClass} ${isDark?"dark-txt":"light-txt"} _14`}>o</span>
+            <span className={`${letterClass} ${isDark?"dark-txt":"light-txt"} _15`}>l</span>
+            <span className={`${letterClass} ${isDark?"dark-txt":"light-txt"} _16`}>k</span>
+            <span className={`${letterClass} ${isDark?"dark-txt":"light-txt"} _17`}>s</span>
+            <br />
+            <AnimatedLetters
+              letterClass={letterClass}
+              strArray={array[0]}
+              idx={15}
+            />
+            <br />
+            <AnimatedLetters
+              letterClass={letterClass}
+              strArray={array[1]}
+              idx={20}
+            />{" "}
+            &nbsp;
+            <Tag name="/h1" />
+          </h1>
+          <h2
             style={{
-              userSelect: "none",
+              color: isDark ? "#ffffff80" : "#000",
             }}
-          />
+          >
+            Full Stack Web Developement / MERN / App Developement / React Native
+            &nbsp;
+          </h2>
+          <ContactBtn />
         </div>
-      )}
-    </div>
+        {window.innerWidth > 1000 && (
+          <div
+            className="right blur-div"
+            style={{
+              filter: isDark ? "brightness(80%)" : "brightness(100%)",
+            }}
+          >
+            <img
+              src={banner}
+              className="blur-load"
+              alt=""
+              onContextMenu={(e) => e.preventDefault()}
+              draggable={false}
+              style={{
+                userSelect: "none",
+              }}
+            />
+          </div>
+        )}
+      </div>
+    </Transition>
   );
 };
 

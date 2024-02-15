@@ -63,10 +63,8 @@
   input[type="email"] {
     width: 100%;
     border: 0;
-    background: #115173;
     height: 50px;
     font-size: 16px;
-    color: #fff;
     padding: 0 20px;
     box-sizing: border-box;
   }
@@ -74,23 +72,27 @@
   textarea {
     width: 100%;
     border: 0;
-    background: #115173;
     height: 50px;
     font-size: 16px;
-    color: #fff;
     padding: 20px;
     box-sizing: border-box;
     min-height: 150px;
   }
+  .dark-inp{
+    background: #115173;
+    color: #fff;
+  }
+  .light-inp{
+    background: #cecece;
+    color: #000;
+  }
 
   .flat-button {
     cursor: pointer;
-    color: #ffd700;
     font-size: 11px;
     letter-spacing: 3px;
     text-decoration: none;
     padding: 8px 10px;
-    border: 1px solid #ffd700;
     float: left;
     border-radius: 4px;
     background: transparent;
@@ -99,8 +101,22 @@
     text-align: center;
     margin-right: 10px;
   }
-  .flat-button:hover{
-    background: var(--primary-color);
+  .flat-button.dark-btn{
+    color: #ffd700;
+    border: 1px solid #ffd700;
+  }
+  .flat-button.dark-btn:hover{
+    background: #ffd700;
+    color: #000;
+  }
+  .flat-button.light-btn{
+    color: #000;
+    border: 1px solid #000;
+  }
+  .flat-button.light-btn:hover{
+    border: 1px solid #ffd700;
+    background: #ffd700;
+    color: #000;
   }
   input,button,textarea{
     outline: none;

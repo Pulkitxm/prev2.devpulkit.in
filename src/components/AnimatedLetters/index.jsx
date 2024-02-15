@@ -1,10 +1,12 @@
-import {PropTypes} from "prop-types"; 
+import { PropTypes } from "prop-types";
 import "./index.scss";
-const Index = ({letterClass, strArray, idx}) => {
+import { useSelector } from "react-redux";
+const Index = ({ letterClass, strArray, idx }) => {
+  const isDark = useSelector((state) => state.theme.isDark);
   return (
     <span>
       {strArray.map((char, i) => (
-        <span key={char + i} className={`blast ${letterClass} _${i + idx}`}>
+        <span key={char + i} className={`blast ${letterClass} _${i + idx} ${letterClass.includes("text-animate-hover") ? isDark ? "dark-txt" : "light-txt" : ""}`}>
           {char}
         </span>
       ))}

@@ -7,7 +7,7 @@ html {
   --light-bg: #eaeaea;
   --dark-bg: #022c43;
   --sidebar-width: 60px;
-  --sidebar-height: 60px;
+  --sidebar-height: 20px;
   --primary-color:#ffd700,
 }
 
@@ -48,6 +48,28 @@ body {
   position: absolute;
   inset: 0;
   animation: loadBlurry 1s infinite;
+}
+
+.slide-in{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #000;
+  transform-origin: bottom;
+  z-index:3;
+}
+
+.slide-out{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #000;
+  transform-origin: top;
+  z-index:3;
 }
 
 @keyframes loadBlurry {

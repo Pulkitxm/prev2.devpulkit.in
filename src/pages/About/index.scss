@@ -64,14 +64,20 @@
     position: absolute;
     width: 200px;
     height: 200px;
-    border: 1px solid #ccc;
-    background: rgba(255, 255, 255, 0.4);
     text-align: center;
     font-size: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  
+  .light-div{
+    box-shadow: 0 0 20px 0px rgb(165 165 165);
+    background: rgb(139 139 139 / 4%);
+  }
+  .dark-div{
     box-shadow: 0 0 20px 0px lightyellow;
+    background: rgba(255, 255, 255, 0.4);
   }
 
   .face1 {
