@@ -6,11 +6,16 @@ html {
 :root {
   --light-bg: #eaeaea;
   --dark-bg: #022c43;
+  --sidebar-width: 60px;
+  --sidebar-height: 60px;
 }
 
 button{
   cursor: pointer;
   user-select: none;
+}
+button:focus {
+  outline: none;
 }
 
 body {

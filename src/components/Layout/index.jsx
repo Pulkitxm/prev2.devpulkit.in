@@ -6,7 +6,13 @@ import { useSelector } from "react-redux";
 const Layout = () => {
   const isDark = useSelector((state) => state.theme.isDark);
   return (
-    <div className="app">
+    <div
+     className="app"
+     style={{
+      display:"flex",
+      flexDirection: window.innerWidth > 1000 ? "row" : "column",
+     }}
+     >
       <Sidebar />
       <div className="page"
         style={{

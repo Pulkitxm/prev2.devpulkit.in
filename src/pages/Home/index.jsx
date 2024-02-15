@@ -4,17 +4,34 @@ import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import ContactBtn from "./ContactBtn";
 import AnimatedLetters from "../../components/AnimatedLetters";
-import banner from "../../assets/images/banner.png";
+import banner from "../../assets/images/banner.jpg";
 
 const Home = () => {
   const isDark = useSelector((state) => state.theme.isDark);
   const [letterClass, setLetterClass] = useState("text-animate");
-  const array = ["I'm Pulkit".split(""), "a web Developer.".split("")];
+  const array = ["I'm Pulkit,".split(""), "a web Developer.".split("")];
   useEffect(() => {
     setTimeout(() => {
       setLetterClass("text-animate-hover");
       return true;
     }, 4000);
+    const blurDivs = document.querySelectorAll(".blur-div");
+    blurDivs.forEach((div) => {
+      const img = div.querySelector("img");
+      if (!img) return;
+      const loaded = () => {
+        setTimeout(() => {
+          div.classList.add("loaded");
+        }, 2000);
+      };
+      if (img.complete) {
+        loaded();
+      } else {
+        img.addEventListener("load", () => {
+          loaded();
+        });
+      }
+    });
   }, []);
   const Tag = ({ name }) => {
     return (
@@ -48,12 +65,13 @@ const Home = () => {
         <h1>
           <span className={`${letterClass} _9`}>H</span>
           <span className={`${letterClass} _10`}>e</span>
-          <span className={`${letterClass} _11`}>y</span> &nbsp;
-          <span className={`${letterClass} _12`}>F</span>
-          <span className={`${letterClass} _13`}>o</span>
-          <span className={`${letterClass} _14`}>l</span>
-          <span className={`${letterClass} _15`}>k</span>
-          <span className={`${letterClass} _16`}>s</span>
+          <span className={`${letterClass} _11`}>y</span>
+          <span className={`${letterClass} _12`}>!</span> &nbsp;
+          <span className={`${letterClass} _13`}>F</span>
+          <span className={`${letterClass} _14`}>o</span>
+          <span className={`${letterClass} _15`}>l</span>
+          <span className={`${letterClass} _16`}>k</span>
+          <span className={`${letterClass} _17`}>s</span>
           <br />
           <AnimatedLetters
             letterClass={letterClass}
@@ -79,14 +97,25 @@ const Home = () => {
         </h2>
         <ContactBtn />
       </div>
-      {
-        window.innerWidth > 1000 && (
-          <div className="right blur-div" style={{
-            filter: isDark ? "brightness(80%)" : "brightness(100%)"
-          }}>
-              <img src={banner} className="blur-load" alt="" />
-          </div>)
-      }
+      {window.innerWidth > 1000 && (
+        <div
+          className="right blur-div"
+          style={{
+            filter: isDark ? "brightness(80%)" : "brightness(100%)",
+          }}
+        >
+          <img
+            src={banner}
+            className="blur-load"
+            alt=""
+            onContextMenu={(e) => e.preventDefault()}
+            draggable={false}
+            style={{
+              userSelect: "none",
+            }}
+          />
+        </div>
+      )}
     </div>
   );
 };
