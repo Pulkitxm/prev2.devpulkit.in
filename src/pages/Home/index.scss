@@ -1,0 +1,49 @@
+.home {
+  padding-left: 5em;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  .left {
+    h1 {
+      padding-left: 0.2em;
+      line-height: 1.2em;
+      margin: 0;
+      font-size: 5em;
+      user-select: none;
+      cursor: text;
+    }
+    h2 {
+      padding-left: 0.5em;
+      margin: 0;
+      font-size: 1.5em;
+      margin-bottom: 2em;
+      user-select: none;
+      font-weight: 200;
+      cursor: text;
+      animation: fadeIn 1s 1.8s backwards;
+    }
+  }
+  .right {
+    height: 100%;
+    width: 60%;
+    background: url("../../assets/images/banner-sm.png");
+    background-size: cover;
+    background-position: center;
+    img {
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 1/1;
+      object-position: center;
+      object-fit: cover;
+      display: block;
+      opacity: 0;
+    }
+  }
+  .loaded {
+    img {
+      opacity: 1;
+    }
+  }
+}

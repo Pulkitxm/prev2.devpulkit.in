@@ -1,0 +1,57 @@
+html {
+  font-size: 62.5%;
+  overflow: hidden;
+}
+
+:root {
+  --light-bg: #eaeaea;
+  --dark-bg: #022c43;
+}
+
+button{
+  cursor: pointer;
+  user-select: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font: 300 11px/1.4 "Helvetica Neue", sans-serif;
+  color: #444;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: block;
+}
+
+.dashboard {
+  margin-top: 200px;
+  margin-left: 200px;
+}
+
+@media screen and (max-width: 1200px) {
+  body {
+    overflow: visible;
+  }
+}
+
+.blur-div.loaded::before{
+  content: none;
+}
+.blur-div::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    background-color: rgba(255, 254, 254,0);
+  }
+  50% {
+    background-color: rgba(255, 254, 254,.1);
+  }
+  100% {
+    background-color: rgba(255, 254, 254,0);
+  }
+}
