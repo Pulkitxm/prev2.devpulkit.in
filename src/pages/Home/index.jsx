@@ -6,6 +6,15 @@ import ContactBtn from "./ContactBtn";
 import AnimatedLetters from "../../components/AnimatedLetters";
 import banner from "../../assets/images/banner.jpg";
 import Transition from "../../components/Layout/transition";
+import {
+  IconGithub,
+  IconLinkedin,
+  IconYoutube,
+  IconMail,
+  IconInstagram,
+  IconBxlDiscord,
+} from "./Svgs";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const isDark = useSelector((state) => state.theme.isDark);
@@ -150,6 +159,36 @@ const Home = () => {
             Full Stack Web Developement / MERN / App Developement / React Native
             &nbsp;
           </h2>
+          <div className="icons">
+            <p style={{ display: "inline" }} title={"@Pulkitxm"}>
+              <Link to={"https://github.com/Pulkitxm"} target="_blank" >
+                <IconGithub color={isDark ? "#fff" : "000"} />
+              </Link>
+            </p>
+            <p style={{ display: "inline" }} title={"@pulkit-dce"}>
+              <Link to={"http://www.linkedin.com/in/pulkit-%E2%80%8E-75237a1b8"} target="_blank" >
+                <IconLinkedin />
+              </Link>
+            </p>
+            <p style={{ display: "inline" }} title={"@CodeWithPulkit"} >
+              <Link to={"https://www.youtube.com/@CodeWithPulkit"} target="_blank">
+                <IconYoutube />
+              </Link>
+            </p>
+            <p style={{ display: "inline" }} title={"kpulkit15234@gmail.com"} >
+              <Link to={"mailto:kpulkit15234@gmail.com"} target="_blank">
+                <IconMail color={isDark ? "#fff" : "000"} />
+              </Link>
+            </p>
+            <p style={{ display: "inline" }} title={"@teckypulkit"} >
+              <Link to={"https://www.instagram.com/teckypulkit"} target="_blank">
+                <IconInstagram />
+              </Link>
+            </p>
+            <p style={{ display: "inline" }} title={"@pulkitxm"} >
+              <IconBxlDiscord />
+            </p>
+          </div>
           <ContactBtn />
         </div>
         {window.innerWidth > 1000 && (
