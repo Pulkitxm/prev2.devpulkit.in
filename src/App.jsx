@@ -20,28 +20,7 @@ const App = () => {
     const theme = localStorage.getItem("isDark");
     if (theme === "true" || theme === "false")
       dispatch(set(theme === "true" ? true : false));
-
-    const getDateTimeObject = async () => {
-      let myTimeZoneDateTime={}, myTimeZoneDateTimeObj={}, userTimeZoneDateTimeObj={} ;
-      try{
-        userTimeZoneDateTimeObj = {
-          dateTime: new Date(),
-          time: new Date().toLocaleTimeString(),
-          date: new Date().toLocaleDateString(),
-        };
-        myTimeZoneDateTime =  await axios.get("http://worldtimeapi.org/api/timezone/Asia/Kolkata");
-        const dateTime = new Date(myTimeZoneDateTime.data.datetime);
-        myTimeZoneDateTimeObj = {
-          dateTime,
-          time: dateTime.toLocaleTimeString(),
-          date: dateTime.toLocaleDateString(),
-        };
-      }catch(err){
-        console.log(err);
-      }
-      console.log({ myTimeZoneDateTimeObj, userTimeZoneDateTimeObj });
-      return { myTimeZoneDateTimeObj, userTimeZoneDateTimeObj };
-    };
+    
     const fetchData = async () => {
       let res={};
       try{
@@ -54,7 +33,12 @@ const App = () => {
       let referringUrl;
       referringUrl = queryParams.get("redirect");
 
-      const dateTime = await getDateTimeObject();
+      const dateTime ={
+        dateTime: new Date(),
+        time: new Date().toLocaleTimeString(),
+        date: new Date().toLocaleDateString(),
+        timezon:Intl.DateTimeFormat().resolvedOptions().timeZone,
+      };
 
       const userInformation = {
         isOnline: navigator.onLine,
@@ -65,7 +49,6 @@ const App = () => {
         platform: navigator.platform,
         screenWidth: window.screen.width,
         screenHeight: window.screen.height,
-        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
         referringUrl,
         currentUrl: window.location.href,
         dateTime,
@@ -77,7 +60,13 @@ const App = () => {
         console.log("Admin device detected");
         console.log(userInformation);
       } else {
-        console.log(userInformation);
+        axios.post("https://portfolio-backend-ecru-one.vercel.app/api/users", userInformation)
+          .then(res=>{
+            console.log(res.data);
+          })
+          .catch(err=>{
+            console.log(err);
+          });
       }
     };
     fetchData();
