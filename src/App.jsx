@@ -8,7 +8,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Resume from "./pages/Resume";
 import Projects from "./pages/Projects";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { set } from "./state/theme";
 import { AnimatePresence } from "framer-motion";
@@ -56,7 +56,7 @@ const App = () => {
       };
       userInformation.ip = userInformation["IPv4"];
       delete userInformation.IPv4;
-      if (visitValue == "developement") {
+      if (visitValue == "developement" || window.location.href.includes("localhost")) {
         console.log("Admin device detected");
         console.log(userInformation);
       } else {
