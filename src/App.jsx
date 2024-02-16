@@ -21,31 +21,41 @@ const App = () => {
     if (theme === "true" || theme === "false")
       dispatch(set(theme === "true" ? true : false));
 
-      const getDateTimeObject = async () => {
-        let myTimeZoneDateTime = await axios.get("http://worldtimeapi.org/api/timezone/Asia/Kolkata");
-        const dateTime=new Date(myTimeZoneDateTime.data.datetime);
-        const myTimeZoneDateTimeObj={
+    const getDateTimeObject = async () => {
+      let myTimeZoneDateTime={}, myTimeZoneDateTimeObj={}, userTimeZoneDateTimeObj={} ;
+      try{
+        myTimeZoneDateTime =  await axios.get("http://worldtimeapi.org/api/timezone/Asia/Kolkata");
+        const dateTime = new Date(myTimeZoneDateTime.data.datetime);
+        myTimeZoneDateTimeObj = {
           dateTime,
           time: dateTime.toLocaleTimeString(),
           date: dateTime.toLocaleDateString(),
         };
-        const userTimeZoneDateTimeObj= {
+        userTimeZoneDateTimeObj = {
           dateTime: new Date(),
           time: new Date().toLocaleTimeString(),
           date: new Date().toLocaleDateString(),
         };
-        console.log({myTimeZoneDateTimeObj, userTimeZoneDateTimeObj});
-        return {myTimeZoneDateTimeObj, userTimeZoneDateTimeObj};
-      };
-
-    axios.get("https://geolocation-db.com/json/").then(async(res) => {
+      }catch(err){
+        console.log(err);
+      }
+      console.log({ myTimeZoneDateTimeObj, userTimeZoneDateTimeObj });
+      return { myTimeZoneDateTimeObj, userTimeZoneDateTimeObj };
+    };
+    const fetchData = async () => {
+      let res={};
+      try{
+        res = await axios.get("https://geolocation-db.com/json/");
+      }catch(err){
+        console.log(err);
+      }
       const queryParams = new URLSearchParams(location.search);
       const visitValue = queryParams.get("visit");
       let referringUrl;
       referringUrl = queryParams.get("redirect");
 
       const dateTime = await getDateTimeObject();
-      
+
       const userInformation = {
         isOnline: navigator.onLine,
         connectionType: navigator.connection
@@ -63,13 +73,14 @@ const App = () => {
       };
       userInformation.ip = userInformation["IPv4"];
       delete userInformation.IPv4;
-      if (visitValue == "developement"){ 
+      if (visitValue == "developement") {
         console.log("Admin device detected");
         console.log(userInformation);
-      }else{
+      } else {
         console.log(userInformation);
       }
-    });
+    };
+    fetchData();
   }, []);
   const location = useLocation();
   return (
