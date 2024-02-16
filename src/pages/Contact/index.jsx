@@ -58,6 +58,10 @@ const Layout = () => {
         style={{
           backgroundColor: isDark ? "var(--dark-bg)" : "var(--light-bg)",
           color: isDark ? "#fff" : "#000",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          flexDirection: window.innerWidth > 768 ? "row" : "column",
         }}
       >
         <div className="left">
@@ -85,7 +89,7 @@ const Layout = () => {
                       setValues({ ...values, name: e.target.value })
                     }
                     required
-                    className={isDark?"dark-inp":"light-inp"}
+                    className={isDark ? "dark-inp" : "light-inp"}
                   />
                 </li>
                 <li className="half">
@@ -98,7 +102,7 @@ const Layout = () => {
                       setValues({ ...values, email: e.target.value })
                     }
                     required
-                    className={isDark?"dark-inp":"light-inp"}
+                    className={isDark ? "dark-inp" : "light-inp"}
                   />
                 </li>
                 <li>
@@ -111,7 +115,7 @@ const Layout = () => {
                       setValues({ ...values, subject: e.target.value })
                     }
                     required
-                    className={isDark?"dark-inp":"light-inp"}
+                    className={isDark ? "dark-inp" : "light-inp"}
                   />
                 </li>
                 <li>
@@ -122,20 +126,29 @@ const Layout = () => {
                     onChange={(e) =>
                       setValues({ ...values, message: e.target.value })
                     }
-                    className={isDark?"dark-inp":"light-inp"}
+                    className={isDark ? "dark-inp" : "light-inp"}
                   ></textarea>
                 </li>
                 <li>
-                  <input type="submit" className={`flat-button ${isDark?"dark-btn":"light-btn"}`} value="SEND" />
+                  <input
+                    type="submit"
+                    className={`flat-button ${
+                      isDark ? "dark-btn" : "light-btn"
+                    }`}
+                    value="SEND"
+                  />
                 </li>
               </ul>
             </form>
           </div>
         </div>
-        <div className="right">
-          <Map />
-        </div>
+        {window.innerWidth > 768 && (
+          <div className="right">
+            <Map />
+          </div>
+        )}
       </div>
+      <div style={{ height: "20em" }}></div>
     </Transition>
   );
 };
