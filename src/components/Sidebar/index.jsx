@@ -26,8 +26,16 @@ const Index = () => {
     }
   };
   useEffect(() => {
-    if (highlight) navRef.current.style.left = "0%";
-    else navRef.current.style.left = "100%";
+    if(window.innerWidth < 1000){
+      if (highlight) {
+        navRef.current.style.top = "60px";
+        navRef.current.style.opacity = "1";
+      }
+      else{
+         navRef.current.style.top = "65px";
+         navRef.current.style.opacity = "0";
+      }
+    }
   }, [highlight]);
   return (
     <div
@@ -89,7 +97,6 @@ const Index = () => {
           height: window.innerWidth > 1000 ? "210px" : "50px",
           width: window.innerWidth > 1000 ? null : "100%",
           top: window.innerWidth > 1000 ? "50%" : "63px",
-          left: window.innerWidth > 1000 ? null : "0",
           backgroundColor:
             window.innerWidth < 1000
               ? isDark

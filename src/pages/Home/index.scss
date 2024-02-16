@@ -1,5 +1,10 @@
 .home {
-  padding-left: 5em;
+  @media (max-width: 768px) {
+    padding-left: 1em;
+  }
+  @media (min-width: 768px) {
+    padding-left: 5em;
+  }
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -10,7 +15,12 @@
       padding-left: 0.2em;
       line-height: 1.2em;
       margin: 0;
-      font-size: 5em;
+      @media (max-width: 768px) {
+        font-size: 3.5em;
+      }
+      @media (min-width: 768px) {
+        font-size: 5em;
+      }
       user-select: none;
       cursor: text;
     }

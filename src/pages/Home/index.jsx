@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 import ContactBtn from "./ContactBtn";
 import AnimatedLetters from "../../components/AnimatedLetters";
 import banner from "../../assets/images/banner.jpg";
-import Loader from "react-loaders";
 import Transition from "../../components/Layout/transition";
 
 const Home = () => {
@@ -66,15 +65,69 @@ const Home = () => {
         <div className="left">
           <Tag name="h1" />
           <h1>
-            <span className={`${letterClass} ${isDark?"dark-txt":"light-txt"} _9`}>H</span>
-            <span className={`${letterClass} ${isDark?"dark-txt":"light-txt"} _10`}>e</span>
-            <span className={`${letterClass} ${isDark?"dark-txt":"light-txt"} _11`}>y</span>
-            <span className={`${letterClass} ${isDark?"dark-txt":"light-txt"} _12`}>!</span> &nbsp;
-            <span className={`${letterClass} ${isDark?"dark-txt":"light-txt"} _13`}>F</span>
-            <span className={`${letterClass} ${isDark?"dark-txt":"light-txt"} _14`}>o</span>
-            <span className={`${letterClass} ${isDark?"dark-txt":"light-txt"} _15`}>l</span>
-            <span className={`${letterClass} ${isDark?"dark-txt":"light-txt"} _16`}>k</span>
-            <span className={`${letterClass} ${isDark?"dark-txt":"light-txt"} _17`}>s</span>
+            <span
+              className={`${letterClass} ${
+                isDark ? "dark-txt" : "light-txt"
+              } _9`}
+            >
+              H
+            </span>
+            <span
+              className={`${letterClass} ${
+                isDark ? "dark-txt" : "light-txt"
+              } _10`}
+            >
+              e
+            </span>
+            <span
+              className={`${letterClass} ${
+                isDark ? "dark-txt" : "light-txt"
+              } _11`}
+            >
+              y
+            </span>
+            <span
+              className={`${letterClass} ${
+                isDark ? "dark-txt" : "light-txt"
+              } _12`}
+            >
+              !
+            </span>{" "}
+            <span
+              className={`${letterClass} ${
+                isDark ? "dark-txt" : "light-txt"
+              } _13`}
+            >
+              F
+            </span>
+            <span
+              className={`${letterClass} ${
+                isDark ? "dark-txt" : "light-txt"
+              } _14`}
+            >
+              o
+            </span>
+            <span
+              className={`${letterClass} ${
+                isDark ? "dark-txt" : "light-txt"
+              } _15`}
+            >
+              l
+            </span>
+            <span
+              className={`${letterClass} ${
+                isDark ? "dark-txt" : "light-txt"
+              } _16`}
+            >
+              k
+            </span>
+            <span
+              className={`${letterClass} ${
+                isDark ? "dark-txt" : "light-txt"
+              } _17`}
+            >
+              s
+            </span>
             <br />
             <AnimatedLetters
               letterClass={letterClass}
@@ -87,7 +140,6 @@ const Home = () => {
               strArray={array[1]}
               idx={20}
             />{" "}
-            &nbsp;
             <Tag name="/h1" />
           </h1>
           <h2

@@ -2,6 +2,7 @@
   height: 100svh;
   width: 100vw;
   margin: 0;
+  overflow: hidden;
 }
 
 .page {
@@ -12,7 +13,12 @@
 
 .top-tags {
   bottom: auto;
-  top: 35px;
+  @media (max-width: 768px) {
+    top: 80px;
+  }
+  @media (min-width: 768px) {
+    top: 35px;
+  }
 }
 
 .tags {
@@ -21,12 +27,19 @@
   opacity: 0.6;
   position: absolute;
   bottom: 0;
-  left: 120px;
+  @media (max-width: 768px) {
+    left: 10px;
+  }
+  @media (min-width: 768px) {
+    left: 120px;
+  }
   font-size: 18px;
 }
 
 .bottom-tag-html {
-  margin-left: -20px;
+  @media (min-width: 768px) {
+    margin-left: -20px;
+  }
 }
 
 .container {

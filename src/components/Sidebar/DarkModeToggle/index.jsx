@@ -7,21 +7,24 @@ const Index = () => {
   return (
     <div
       style={{
-        transform:"scale(.5)"
+        transform: "scale(.5)",
       }}
+      onClick={() => dispatch(toggle())}
     >
       <label className="switch">
         <input
+          name="darkmode"
           type="checkbox"
           checked={isDark}
           onChange={() => dispatch(toggle())}
-          style={{
-          }}
-          />
+          style={{}}
+        />
         <span
-          className={"slider"+(isDark ? " dark" : " light")}
+          className={"slider" + (isDark ? " dark" : " light")}
           style={{
-            boxShadow: isDark ? "2px 2px 20px #fff" : "0 0 0 2px red, 0 0 8px red",
+            boxShadow: isDark
+              ? "2px 2px 20px #fff"
+              : "0 0 0 2px red, 0 0 8px red",
           }}
         ></span>
       </label>{" "}

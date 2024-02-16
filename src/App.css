@@ -8,10 +8,16 @@ html {
   --dark-bg: #022c43;
   --sidebar-width: 60px;
   --sidebar-height: 20px;
-  --primary-color:#ffd700,
+  --primary-color: #ffd700;
 }
 
-button{
+@media (max-width: 768px) {
+  body {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+button {
   cursor: pointer;
   user-select: none;
 }
@@ -40,17 +46,17 @@ body {
   }
 }
 
-.blur-div.loaded::before{
+.blur-div.loaded::before {
   content: none;
 }
-.blur-div::before{
+.blur-div::before {
   content: "";
   position: absolute;
   inset: 0;
   animation: loadBlurry 1s infinite;
 }
 
-.slide-in{
+.slide-in {
   position: fixed;
   top: 0;
   left: 0;
@@ -58,10 +64,10 @@ body {
   height: 100vh;
   background: #000;
   transform-origin: bottom;
-  z-index:3;
+  z-index: 3;
 }
 
-.slide-out{
+.slide-out {
   position: fixed;
   top: 0;
   left: 0;
@@ -69,17 +75,17 @@ body {
   height: 100vh;
   background: #000;
   transform-origin: top;
-  z-index:3;
+  z-index: 3;
 }
 
 @keyframes loadBlurry {
   0% {
-    background-color: rgba(255, 254, 254,0);
+    background-color: rgba(255, 254, 254, 0);
   }
   50% {
-    background-color: rgba(255, 254, 254,.1);
+    background-color: rgba(255, 254, 254, 0.1);
   }
   100% {
-    background-color: rgba(255, 254, 254,0);
+    background-color: rgba(255, 254, 254, 0);
   }
 }

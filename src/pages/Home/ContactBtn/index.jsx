@@ -8,6 +8,7 @@ const Index = () => {
       to={"/contact"}
       style={{
         animation: "fadeIn 1s 1.8s backwards",
+        display: "inline-flex",
       }}
     >
       <button
