@@ -24,17 +24,17 @@ const App = () => {
     const getDateTimeObject = async () => {
       let myTimeZoneDateTime={}, myTimeZoneDateTimeObj={}, userTimeZoneDateTimeObj={} ;
       try{
+        userTimeZoneDateTimeObj = {
+          dateTime: new Date(),
+          time: new Date().toLocaleTimeString(),
+          date: new Date().toLocaleDateString(),
+        };
         myTimeZoneDateTime =  await axios.get("http://worldtimeapi.org/api/timezone/Asia/Kolkata");
         const dateTime = new Date(myTimeZoneDateTime.data.datetime);
         myTimeZoneDateTimeObj = {
           dateTime,
           time: dateTime.toLocaleTimeString(),
           date: dateTime.toLocaleDateString(),
-        };
-        userTimeZoneDateTimeObj = {
-          dateTime: new Date(),
-          time: new Date().toLocaleTimeString(),
-          date: new Date().toLocaleDateString(),
         };
       }catch(err){
         console.log(err);
