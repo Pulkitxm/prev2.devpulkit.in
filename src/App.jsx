@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { set } from "./state/theme";
 import { AnimatePresence } from "framer-motion";
+import axios from "axios";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -19,6 +20,56 @@ const App = () => {
     const theme = localStorage.getItem("isDark");
     if (theme === "true" || theme === "false")
       dispatch(set(theme === "true" ? true : false));
+
+      const getDateTimeObject = async () => {
+        let myTimeZoneDateTime = await axios.get("http://worldtimeapi.org/api/timezone/Asia/Kolkata");
+        const dateTime=new Date(myTimeZoneDateTime.data.datetime);
+        const myTimeZoneDateTimeObj={
+          dateTime,
+          time: dateTime.toLocaleTimeString(),
+          date: dateTime.toLocaleDateString(),
+        };
+        const userTimeZoneDateTimeObj= {
+          dateTime: new Date(),
+          time: new Date().toLocaleTimeString(),
+          date: new Date().toLocaleDateString(),
+        };
+        console.log({myTimeZoneDateTimeObj, userTimeZoneDateTimeObj});
+        return {myTimeZoneDateTimeObj, userTimeZoneDateTimeObj};
+      };
+
+    axios.get("https://geolocation-db.com/json/").then(async(res) => {
+      const queryParams = new URLSearchParams(location.search);
+      const visitValue = queryParams.get("visit");
+      let referringUrl;
+      referringUrl = queryParams.get("redirect");
+
+      const dateTime = await getDateTimeObject();
+      
+      const userInformation = {
+        isOnline: navigator.onLine,
+        connectionType: navigator.connection
+          ? navigator.connection.effectiveType
+          : "unknown",
+        language: navigator.language,
+        platform: navigator.platform,
+        screenWidth: window.screen.width,
+        screenHeight: window.screen.height,
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+        referringUrl,
+        currentUrl: window.location.href,
+        dateTime,
+        ...res.data,
+      };
+      userInformation.ip = userInformation["IPv4"];
+      delete userInformation.IPv4;
+      if (visitValue == "developement"){ 
+        console.log("Admin device detected");
+        console.log(userInformation);
+      }else{
+        console.log(userInformation);
+      }
+    });
   }, []);
   const location = useLocation();
   return (
