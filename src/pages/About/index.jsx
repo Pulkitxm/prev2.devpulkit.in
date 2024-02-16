@@ -45,9 +45,8 @@ const Layout = () => {
   return (
     <Transition isDark={isDark}>
       <div
-        className="about"
+        className={`about ${isDark ? "dark" : "light"}`}
         style={{
-          backgroundColor: isDark ? "var(--dark-bg)" : "var(--light-bg)",
           color: isDark ? "#fff" : "#000",
         }}
       >
@@ -60,7 +59,7 @@ const Layout = () => {
           <div className="h1">
             <Tag name="h1" />
             <br />
-            <h1 style={{marginLeft:".4em"}}>
+            <h1 style={{ marginLeft: ".4em" }}>
               <AnimatedLetters
                 letterClass={letterClass}
                 strArray={"About me".split("")}
@@ -69,13 +68,15 @@ const Layout = () => {
             </h1>
             <Tag name="/h1" />
           </div>
-          <div className="p" style={{marginTop:"3em",marginLeft:"6em"}}>
+          <div className="p" style={{ 
+            marginTop: window.innerWidth> 1000 ? "3em":"1em",
+            marginLeft: window.innerWidth> 1000 ? "6em" :"2em",
+        }}>
             <Tag name="p" />
             <p
               style={{
                 padding: 0,
                 margin: 0,
-                marginLeft:"2em"
               }}
             >
               {
@@ -88,22 +89,22 @@ const Layout = () => {
         {window.innerWidth > 1000 && (
           <div className="right stage-cube-cont">
             <div className="cubespinner">
-              <div className={`face1 ${isDark?"dark-div":"light-div"}`}>
+              <div className={`face1 ${isDark ? "dark-div" : "light-div"}`}>
                 <ReactNative color={"#DD0031"} />
               </div>
-              <div className={`face2 ${isDark?"dark-div":"light-div"}`}>
+              <div className={`face2 ${isDark ? "dark-div" : "light-div"}`}>
                 <Nodejs color={"#F06529"} />
               </div>
-              <div className={`face3 ${isDark?"dark-div":"light-div"}`}>
+              <div className={`face3 ${isDark ? "dark-div" : "light-div"}`}>
                 <Mongodb color={"#28A4D9"} />
               </div>
-              <div className={`face4 ${isDark?"dark-div":"light-div"}`}>
+              <div className={`face4 ${isDark ? "dark-div" : "light-div"}`}>
                 <React color={"#5ED4F4"} />
               </div>
-              <div className={`face5 ${isDark?"dark-div":"light-div"}`}>
+              <div className={`face5 ${isDark ? "dark-div" : "light-div"}`}>
                 <IconJava color={"#EFD81D"} />
               </div>
-              <div className={`face6 ${isDark?"dark-div":"light-div"}`}>
+              <div className={`face6 ${isDark ? "dark-div" : "light-div"}`}>
                 <IconJavascript color={"#EC4D28"} />
               </div>
             </div>
