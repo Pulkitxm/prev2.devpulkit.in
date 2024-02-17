@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Sidebar from "../Sidebar/";
+import Terminal from "../Terminal/";
 import "./index.scss";
 import { useSelector } from "react-redux";
 
@@ -14,6 +15,7 @@ const Layout = () => {
      }}
      >
       <Sidebar />
+      {window.innerWidth > 1000 && <Terminal />}
       <div className="page"
         style={{
           backgroundColor: isDark ? "var(--dark-bg)" : "var(--light-bg)",

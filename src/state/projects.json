@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Rate-Repository-App (React Native App)",
+    "linkText": "Github",
+    "link": "https://github.com/Pulkitxm/rate-repository-app",
+    "vidCode": "n-zVYKZX8FA",
+    "skills": "React Native, Reactjs, GraphQl, ApolloGraphQl",
+    "desc": "🚀 Just Completed my Rate-Repository-App! (Android/IOS in React-Native)🌟 I'm thrilled to share that I've successfully wrapped up my latest project, the Rate-Repository-App! 🎉 As part of the FullStackOpen course, I've built an application that allows users to rate GitHub repositories. This app isn't just about ratings; it's a platform where users can sign up, sign in, and contribute their reviews to repositories. What's more? Each user can provide only one review per repository, ensuring fair and authentic feedback. One of the highlights of this project is the implementation of infinite scroll using cursor pagination for both repositories and review views. This means a seamless browsing experience for users, offering a continuous stream of data without overwhelming the interface. Every repository in the app has its own dedicated view, making it effortless for users to navigate to its GitHub page. It's all about providing a smooth and informative experience. Completing this project has been an incredible and tough journey, filled with learning and growth. It's not just about coding; it's about understanding user experiences, implementing best practices, and overcoming challenges. I'm excited about the skills I've developed and the practical knowledge gained throughout this process. I'm eager to continue learning and applying these skills to future projects in app developement. A huge shoutout to the FullStackOpen course and the amazing community for their support and guidance throughout this journey. 🙌 Check out the Rate-Repository-App [ReactNative] and let me know your thoughts! I'm open to feedback and suggestions for further improvements.",
+    "id": "rate-repo-app"
+  },
+  {
+    "title": "Wanderlust",
+    "linkText": "Github",
+    "link": "https://github.com/Pulkitxm/wanderlust",
+    "vidCode": "zQD3Kj95H7w",
+    "skills": "MongoDB Atlas, MongoDb, mongoose, ExpressJS, NodeJS, ReactJS, EJs, cloudinary",
+    "desc": "🚀 Big news! I just finished my major project called Wanderlust during my time at Apna College in the Delta Course with the guidance of Shradha Khapra Mam. It was an incredible journey that helped me learn a lot about full-stack development. Have a look at it! I also added way more features in it apart from what was taught in the course. Wanderlust isn't just any web app - it's a result of weeks of hard work and dedication. I used EJS to create the look of the pages and set up ways for users to do things like create, update, and view listings, bringing places to life in the app. One of the trickier parts was making sure people could sign up and log in securely. I had a few issues with a library that was followed along in the course, so I decided to build the sign-up and log-in parts with user model from scratch. It was tough, but it taught me a lot about how these things work. I made sure the app was safe to use by adding ways to check if someone should be allowed to do things like edit or delete reviews and listings. Users can also pick a category to see only the kinds of places they're interested in, which makes searching easier. I added a search feature so users can find things based on descriptions, titles, or even where they are. People can rate things with stars, which makes it easy to see what others thought about a place. And, to make things more visual, I used Mapbox to show locations on maps. Working on Wanderlust was awesome. I learned so much about making web apps and how to make them useful and fun. I'm really proud of what I made and all the skills I gained along the way.Special thanks to Shardha mam for the guidance.",
+    "id": "wanderlust"
+  },
+  {
+    "title": "BlogKit - the Blogging Application",
+    "linkText": "BlogKit",
+    "link": "https://blog-kit-pulkit.vercel.app/",
+    "vidCode": "zJbR01Rd1F0",
+    "skills": "MongoDB Atlas, MongoDb, mongoose, ExpressJS, NodeJS, ReactJS, EJs",
+    "desc": "Excited to share a feature-rich blog application where you can create, view, edit, and delete blogs effortlessly. Here's what you can do: ✍️ Create Blogs: Craft your blogs with rich text formatting, including bold and italics. Align your content left, center, or right. Add horizontal rules, insert images, and create clickable links. Our real-time preview makes it a breeze. 📚 View Blogs: Explore blogs created by you and other talented writers. Enjoy the beautifully formatted content, complete with images and links. ✏️ Edit Blogs: Made a mistake? No worries! Edit your blogs anytime. Our editor allows you to make changes and see them instantly. 🗑️ Delete Blogs: Need to remove a blog? We've got you covered. A simple \"delete\" button lets you remove your blogs with ease. 👍 Likes: Show some love for your favorite blogs by giving them a thumbs-up. See how many others appreciated the content. 🌐 Navigation: Seamlessly move around the app with user-friendly links and buttons. It's all about making your experience smooth and enjoyable. Join me on this blogging journey! Try it out, share your thoughts, and let's create and appreciate fantastic content together. 🌟",
+    "id": "blogkit"
+  },
+  {
+    "title": "Whatsapp Clone",
+    "linkText": "Github",
+    "link": "https://github.com/Pulkitxm/Whatsapp",
+    "vidCode": "gdr_j1lzlWU",
+    "skills": "MongoDB Atlas, MongoDb, mongoose, ExpressJS, NodeJS, ReactJS, JWT",
+    "desc": "🚀 Just Completed My MERN Stack Project: Building a Real-Time Chat Application! 📱💬 I'm thrilled to share my latest project, a real-time chat application built using the MERN stack (MongoDB, Express.js, React, Node.js). While real-time applications often use Socket.IO for instant messaging, I took a slightly different approach for this project to make it more accessible for beginners. 🔗 Backend (Node.js and Express.js): The backend handles user authentication and chat data storage. When a user logs in, their chats are retrieved from the database and displayed in the frontend. 💼 Database (MongoDB): MongoDB stores user information, including chat messages. User chats are organized and retrieved based on the sender and receiver IDs. 🎨 Frontend (React): The frontend is where the magic happens! It provides a user-friendly interface for sending and receiving messages. Messages are sorted by timestamp and displayed in a conversation view. A user can easily switch between different chat partners. 🔄 Chat Refresh Feature: Instead of using Socket.IO for real-time updates, I implemented a chat refresh feature. By clicking the Refresh button, users can retrieve the latest messages in their chats. This feature works smoothly, ensuring that users see new messages without constant server polling. 🔒 Authentication: To maintain user privacy and security, I implemented user authentication. Users must log in with a valid username and password to access their chats. 📦 Local Storage: I used local storage to store chat data locally, reducing the need for repeated database queries and enhancing the user experience. 🚧 Error Handling: I included robust error handling to provide feedback to users when something goes wrong, such as incorrect login credentials. 🌟 This project challenged me to think creatively and find alternative solutions to real-time messaging. While Socket.IO is a popular choice, this project shows that with careful design and development, we can achieve similar functionality in a more straightforward way.",
+    "id": "wa-clone"
+  }
+]

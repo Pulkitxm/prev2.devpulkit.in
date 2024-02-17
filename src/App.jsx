@@ -11,6 +11,7 @@ import Projects from "./pages/Projects";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { set } from "./state/theme";
+import { setProjects } from "./state/projects";
 import { AnimatePresence } from "framer-motion";
 import axios from "axios";
 
@@ -20,12 +21,21 @@ const App = () => {
     const theme = localStorage.getItem("isDark");
     if (theme === "true" || theme === "false")
       dispatch(set(theme === "true" ? true : false));
-    
+
+    const fetchProjects = async () => {
+      try {
+        const res = await axios.get(
+          "https://portfolio-backend-ecru-one.vercel.app/api/projects"
+        );
+        dispatch(setProjects(res.data));
+      // eslint-disable-next-line no-empty
+      } catch (err) {}
+    };
     const fetchData = async () => {
-      let res={};
-      try{
+      let res = {};
+      try {
         res = await axios.get("https://geolocation-db.com/json/");
-      }catch(err){
+      } catch (err) {
         console.log(err);
       }
       const queryParams = new URLSearchParams(location.search);
@@ -33,11 +43,11 @@ const App = () => {
       let referringUrl;
       referringUrl = queryParams.get("redirect");
 
-      const dateTime ={
+      const dateTime = {
         dateTime: new Date(),
         time: new Date().toLocaleTimeString(),
         date: new Date().toLocaleDateString(),
-        timezon:Intl.DateTimeFormat().resolvedOptions().timeZone,
+        timezon: Intl.DateTimeFormat().resolvedOptions().timeZone,
       };
 
       const userInformation = {
@@ -56,20 +66,28 @@ const App = () => {
       };
       userInformation.ip = userInformation["IPv4"];
       delete userInformation.IPv4;
-      if (visitValue == "developement" || window.location.href.includes("localhost")) {
+      if (
+        visitValue == "developement" ||
+        window.location.href.includes("localhost")
+      ) {
         console.log("Admin device detected");
         console.log(userInformation);
       } else {
-        axios.post("https://portfolio-backend-ecru-one.vercel.app/api/users", userInformation)
-          .then(res=>{
+        axios
+          .post(
+            "https://portfolio-backend-ecru-one.vercel.app/api/users",
+            userInformation
+          )
+          .then((res) => {
             console.log(res.data);
           })
-          .catch(err=>{
+          .catch((err) => {
             console.log(err);
           });
       }
     };
     fetchData();
+    // fetchProjects();
   }, []);
   const location = useLocation();
   return (

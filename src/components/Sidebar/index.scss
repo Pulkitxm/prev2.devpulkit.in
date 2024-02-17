@@ -3,7 +3,7 @@
 .nav-bar {
   user-select: none;
   padding-bottom: 1em;
-  z-index: 5;
+  z-index:8;
   .logo {
     display: flex;
     flex-direction: column;
@@ -56,6 +56,7 @@
         transition: all 0.3s ease-out;
       }
     }
+    
     a.home-link {
       &:after {
         content: "Home";

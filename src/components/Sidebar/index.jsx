@@ -2,7 +2,7 @@ import "./index.scss";
 import PropTypes from "prop-types";
 import { Link, NavLink } from "react-router-dom";
 import LogoS from "../../assets/images/p.webp";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import DarkModeToggle from "./DarkModeToggle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -13,8 +13,10 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useRef, useState } from "react";
+import { toggleTerminal } from "../../state/terminal";
 
 const Index = () => {
+  const dispatch = useDispatch();
   const isDark = useSelector((state) => state.theme.isDark);
   const navRef = useRef(null);
   const [highlight, setHighlight] = useState(false);
@@ -26,14 +28,13 @@ const Index = () => {
     }
   };
   useEffect(() => {
-    if(window.innerWidth < 1000){
+    if (window.innerWidth < 1000) {
       if (highlight) {
         navRef.current.style.top = "60px";
         navRef.current.style.opacity = "1";
-      }
-      else{
-         navRef.current.style.top = "65px";
-         navRef.current.style.opacity = "0";
+      } else {
+        navRef.current.style.top = "65px";
+        navRef.current.style.opacity = "0";
       }
     }
   }, [highlight]);
@@ -157,6 +158,20 @@ const Index = () => {
       {window.innerWidth > 1000 && (
         <div className="bottom">
           <ul>
+          <li>
+              <a>
+                <svg
+                  fill="#4d4d4e"
+                  viewBox="0 0 16 16"
+                  style={{
+                    cursor: "pointer",
+                  }}
+                  onClick={() => dispatch(toggleTerminal())}
+                >
+                  <path d="M0 3a2 2 0 012-2h12a2 2 0 012 2v10a2 2 0 01-2 2H2a2 2 0 01-2-2V3zm9.5 5.5h-3a.5.5 0 000 1h3a.5.5 0 000-1zm-6.354-.354a.5.5 0 10.708.708l2-2a.5.5 0 000-.708l-2-2a.5.5 0 10-.708.708L4.793 6.5 3.146 8.146z" />
+                </svg>
+              </a>
+            </li>
             <li>
               <Link
                 to={"https://www.linkedin.com/in/pulkit-%E2%80%8E-75237a1b8"}

@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=Jacquarda+Bastarda+9&display=swap");
+.terminal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 700px;
+  height: 500px;
+  background-color: black;
+  z-index: 7;
+  transform: translate(-100%, -100%);
+  border-radius: 10px;
+  color: #fff;
+  transition: opacity 0.5s;
+  /* resize: both;
+  overflow: auto; */
+  nav {
+    padding: 1em;
+    display: flex;
+    margin-bottom: 2em;
+    cursor: move;
+    h2{
+      padding-top: 1em;
+      margin: auto;
+    }
+    .red {
+      background-color: red;
+    }
+    .green {
+      background-color: green;
+    }
+    .yellow {
+      background-color: yellow;
+    }
+    .red,
+    .green,
+    .yellow {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin: 0.5em;
+      cursor: pointer;
+    }
+  }
+
+  .res {
+    opacity: .7;
+    padding: 0 1em;
+    font-size: 1.5em;
+    margin: 0.3em 0;
+    user-select: none;
+    cursor: text;
+    &,div{
+      width: 95%;
+    }
+    display: flex;
+    align-items: center;
+    a{
+      color: #fff;
+      text-decoration: none;
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .line {
+    padding: 0 1em;
+    font-size: 1.5em;
+    margin: 0.3em 0;
+    user-select: none;
+    cursor: text;
+    height: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    p {
+      padding: 0;
+      margin: 0;
+      display: inline-block;
+    }
+    .highlight {
+      height: 100%;
+      width: 10px;
+      background-color: red;
+      animation: blink 1s infinite ease-in-out;
+    }
+  }
+
+  .styled-p {
+    font-family: "Jacquarda Bastarda 9", serif;
+  }
+
+  .help-line {
+    opacity: 0.5;
+  }
+
+  .output-container{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 407px;
+  }
+
+  .input-line {
+    display: flex;
+    width: 95%;
+    input {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #fff;
+      font-size: 1em;
+      flex-grow: 1;
+    }
+  }
+}
+
+.close {
+  z-index: -1;
+  opacity: 0;
+}
+.open {
+  opacity: 1;
+}
+
+@keyframes blink {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
