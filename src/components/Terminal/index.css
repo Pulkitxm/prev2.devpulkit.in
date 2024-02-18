@@ -5,11 +5,9 @@
   left: 50%;
   width: 700px;
   height: 500px;
-  background-color: black;
   z-index: 7;
-  transform: translate(-100%, -100%);
+  transform: translate(-50%, -50%);
   border-radius: 10px;
-  color: #fff;
   transition: opacity 0.5s;
   /* resize: both;
   overflow: auto; */
@@ -18,7 +16,7 @@
     display: flex;
     margin-bottom: 2em;
     cursor: move;
-    h2{
+    h2 {
       padding-top: 1em;
       margin: auto;
     }
@@ -29,7 +27,7 @@
       background-color: green;
     }
     .yellow {
-      background-color: yellow;
+      background-color: #e2e202;
     }
     .red,
     .green,
@@ -43,21 +41,21 @@
   }
 
   .res {
-    opacity: .7;
+    opacity: 0.7;
     padding: 0 1em;
     font-size: 1.5em;
     margin: 0.3em 0;
     user-select: none;
     cursor: text;
-    &,div{
+    &,
+    div {
       width: 95%;
     }
     display: flex;
     align-items: center;
-    a{
-      color: #fff;
+    a {
       text-decoration: none;
-      &:hover{
+      &:hover {
         text-decoration: underline;
       }
     }
@@ -94,12 +92,14 @@
     opacity: 0.5;
   }
 
-  .output-container{
+  .output-container {
+    overflow: hidden;
     overflow-y: scroll;
-    overflow-x: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
     height: 407px;
   }
-
+  
   .input-line {
     display: flex;
     width: 95%;
@@ -107,7 +107,6 @@
       background: transparent;
       border: none;
       outline: none;
-      color: #fff;
       font-size: 1em;
       flex-grow: 1;
     }
@@ -117,9 +116,14 @@
 .close {
   z-index: -1;
   opacity: 0;
+  transition: opacity 0.2s;
 }
 .open {
   opacity: 1;
+  transition: opacity 0.2s;
+}
+.max {
+  animation: enlarge 0.5s forwards;
 }
 
 @keyframes blink {
