@@ -276,7 +276,7 @@ const Index = () => {
         className="output-container"
         ref={outputRef}
         style={{
-          height: "90%",
+          height: "85%",
           width: "100%",
         }}
       >
