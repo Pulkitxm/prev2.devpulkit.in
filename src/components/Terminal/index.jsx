@@ -258,6 +258,7 @@ const Index = () => {
           <div
             className="green"
             onClick={() => {
+              console.log(!maximize);
               dispatch(toggleMaximize());
             }}
           ></div>

@@ -1,0 +1,75 @@
+.projects {
+  height: 100%;
+  width: 100%;
+  z-index: 3;
+  @media (max-width: 768px) {
+    padding: 1em;
+  }
+  @media (min-width: 768px) {
+    padding: 7em;
+  }
+  .display {
+    width: 90%;
+    .project {
+      width: 100%;
+      border: solid 2px #ffffff;
+    }
+    .blur-div-display.loaded::before {
+      content: none;
+    }
+    .blur-div-display::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      animation: loadBlurry 1s infinite;
+    }
+    .hide-div {
+      opacity: 0 !important;
+    }
+    .display-div {
+      border-radius: 10px;
+      overflow: hidden;
+      position: absolute;
+      .display-image {
+        cursor: pointer;
+        transition: filter 0.2s;
+        &:active{
+          filter: brightness(0.6) !important;
+        }
+        opacity: 0;
+        transition: opacity filter 0.4s;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .project-1 {
+      background: url("../../../assets/projects/small/rate-repo.png");
+      background-size: contain;
+    }
+    .project-2 {
+      background: url("../../../assets/projects/small/wanderlust.png");
+      background-size: contain;
+    }
+    .project-3 {
+      background: url("../../../assets/projects/small/blogkit.png");
+      background-size: contain;
+    }
+    .project-4 {
+      background: url("../../../assets/projects/small/whatsapp.png");
+      background-size: contain;
+    }
+    .project{
+      p{
+        font-size: 1.5em;
+      }
+      h2,p{
+        color: #ffffff !important;
+      }
+    }
+    .loaded {
+      img {
+        opacity: 1 !important;
+      }
+    }
+  }
+}
