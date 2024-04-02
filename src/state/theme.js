@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const themeSlice = createSlice({
   name: "isDark",
   initialState: {
-    isDark:true
+    isDark:window.matchMedia("(prefers-color-scheme: dark)").matches,
   },
   reducers: {
     toggle: (state) => {
